@@ -15,7 +15,7 @@
         <div class="now-playing">
             <div class="now-playing-elements">
                 <h1>Music Player</h1>
-                <audio src="" ontimeupdate="" onloadedmetadata=""></audio>
+                <audio src="./assests/song/memory_reboot_-_vøj,_narvent_[edit_audio](256k).mp3" ontimeupdate="" onloadedmetadata=""></audio>
                 <input type="range" id="duration-slider">
                 <button onclick="">Play</button>
             </div>
@@ -24,11 +24,12 @@
         <div class="music-list">
             <div class="music-list-buttons">
                 <div class="plus-button">
-                    <button id="input-button">
+                    <label for="input-audio" id="input-button">
                         +
-                    </button>
+                    </label>
+                    <input type="file" accept="audio/*" id="input-audio">
                 </div>
-            </div>
+            </div> 
             <div class="songs">
                 <div class="song">
                     <button>Remove</button>
