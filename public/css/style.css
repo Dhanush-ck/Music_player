@@ -70,9 +70,16 @@
 
 #input-button {
     color: white;
-    font-size: 10px;
+    font-size: 30px;
     text-decoration: none;
     background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#input-audio{
+    display: none;
 }
 
 .songs{
