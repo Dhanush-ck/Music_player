@@ -44,6 +44,10 @@
     flex-direction: column;
 }
 
+#duration-slider {
+    width: 80%;
+}
+
 .music-list {
     background-color: #1f1f1f;
     border-radius: 20px;
@@ -61,7 +65,7 @@
     display: flex;
     align-content: center;
     justify-content: center;
-    border: solid 2px white;
+    /* border: solid 2px white; */
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -76,6 +80,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 #input-audio{
@@ -95,4 +100,9 @@
 
 .song{
     /* background-color: #1f1f1f; */
+}
+
+#heart {
+    height: 25px;
+    cursor: pointer;
 }
