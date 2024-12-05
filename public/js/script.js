@@ -25,7 +25,7 @@ const container = document.querySelector('.container');
 const coverImage = document.getElementById('cover-image');
 
 // variable to hold the state of playing or not 
-var isPlaying = true;
+var isPlaying = false;
 // data index 
 var dataIndex = 0;
 // play pause button 
@@ -34,6 +34,8 @@ const playPause = document.getElementById('play-pause')
 const prev = document.getElementById('prev')
 // next button  
 const next = document.getElementById('next')
+// song title 
+const title = document.querySelector('.song-title');
 
 // function to change the src 
 function setPlayButton() {
@@ -45,12 +47,12 @@ function setPlayButton() {
         playPause.src = "./assets/img/icons/pause-button.png"
         currentSong.play();
     }
-    isPlaying = !isPlaying
 }
 
 // calling function on playpause button 
 playPause.onclick = ()=> {
     setPlayButton();
+    isPlaying = !isPlaying
 }
 
 // creating a audio element to play the song 
@@ -83,8 +85,8 @@ function setTrack() {
     container.style.backgroundImage = `url('${data[dataIndex].bgImage}')`;
     coverImage.src = `${data[dataIndex].image}`;
     currentSong.src = data[dataIndex].src;
-    currentSong.play();
-    isPlaying = true
+    title.textContent = data[dataIndex].name;
+    isPlaying?currentSong.play():currentSong.pause();
 }
 
 // calling the function to set track intially 
