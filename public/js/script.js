@@ -12,8 +12,8 @@ const data = [{
                 bgImage : "./assets/img/photos/bg2.jpg"
             },
             {
-                name : "",
-                src : "",
+                name : "Let Me Down Slowly",
+                src : "./assets/song/Alec_Benjamin_-_Let_Me_Down_Slowly__Lyrics_(256k).mp3",
                 image : "./assets/img/photos/cover3.jpg",
                 bgImage : "./assets/img/photos/bg3.jpg"
             }
