@@ -16,13 +16,11 @@
                 <img src="./assets/img/icons/play-button.png" alt="play-pause" id="play-pause">
                 <img src="./assets/img/icons/next.png" alt="next" id="next">
             </div>
-            <input type="range" min="1" max="100" class="slider" id="slider">
+            <input type="range" min="1" max="100" value="0" class="slider" id="slider" onchange="seek()">
             <div class="timers">
                 <div class="current">
-                    0:00
                 </div>
                 <div class="maximum">
-                    0:00
                 </div>
             </div>
         </div>
