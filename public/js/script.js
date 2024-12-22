@@ -42,6 +42,14 @@ const prev = document.getElementById('prev')
 const next = document.getElementById('next')
 // song title 
 const title = document.querySelector('.song-title');
+// creating a audio element to play the song 
+const currentSong = document.createElement('audio');
+// slider 
+const slider = document.getElementById("slider");
+// current time 
+const currentTime = document.querySelector(".current")
+// maximum duration 
+const maximumTime = document.querySelector(".maximum")
 
 // function to change the src 
 function setPlayButton() {
@@ -60,9 +68,6 @@ playPause.onclick = ()=> {
     setPlayButton();
     isPlaying = !isPlaying
 }
-
-// creating a audio element to play the song 
-const currentSong = document.createElement('audio');
 
 // function to change the index forwards 
 function nextTrack() {
@@ -97,3 +102,42 @@ function setTrack() {
 
 // calling the function to set track intially 
 setTrack()
+
+currentSong.addEventListener("ended", ()=>{
+    nextTrack()
+    setTrack()
+})
+
+function seekUpdate() {
+    let seekPosition = 0;
+   
+    // Check if the current track duration is a legible number
+    if (!isNaN(currentSong.duration)) {
+        seekPosition = currentSong.currentTime * (100 / currentSong.duration);
+        slider.value = seekPosition;
+
+        // Calculate the time left and the total duration
+        let currentMinutes = Math.floor(currentSong.currentTime / 60);
+        let currentSeconds = Math.floor(currentSong.currentTime - currentMinutes * 60);
+        let durationMinutes = Math.floor(currentSong.duration / 60);
+        let durationSeconds = Math.floor(currentSong.duration - durationMinutes * 60);
+
+        // Add a zero to the single digit time values
+        if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
+        if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+        if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
+        if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
+        
+    //   console.log(currentMinutes)
+    //   console.log(currentSeconds)
+      // Display the updated duration
+      maximumTime.innerHTML = durationMinutes + ":" + durationSeconds;
+      currentTime.innerHTML = currentMinutes + ":" + currentSeconds;
+    }
+}
+
+setInterval(seekUpdate, 1000)
+
+function seek() {
+    currentSong.currentTime = currentSong.duration * (slider.value / 100)
+}
