@@ -102,3 +102,28 @@
     justify-content: end;
     align-items: center;
 }
+
+@media only screen and (max-width: 450px) {
+
+    .container {
+        background-position: 80%;
+    }
+
+    .container-elements {
+        width: 90%;
+    }
+
+    .timers {
+        margin: 5px;
+    }
+}
+
+@media only screen and (min-width: 450px) and (max-width: 1024px) {
+    .container {
+        background-position: right;
+    }
+
+    .timers {
+        margin: 5px;
+    }
+}
