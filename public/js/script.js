@@ -148,3 +148,10 @@ window.onload = ()=>{
     let durationSeconds = Math.floor(currentSong.duration - durationMinutes * 60);
     maximumTime.innerHTML = durationMinutes + ":" + durationSeconds;
 }
+
+window.addEventListener("keypress", (e)=> {
+    if(e.code === "Space"){
+        setPlayButton();
+        isPlaying = !isPlaying
+    }
+})
